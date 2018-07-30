@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_30_061259) do
+ActiveRecord::Schema.define(version: 2018_07_30_083327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2018_07_30_061259) do
     t.integer "price"
     t.string "course_number"
     t.string "professor"
-    t.boolean "confirmed"
+    t.boolean "confirmed", default: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2018_07_30_061259) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.boolean "completed"
+    t.boolean "completed", default: false
     t.bigint "user_id"
     t.bigint "post_id"
     t.datetime "created_at", null: false
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2018_07_30_061259) do
     t.string "wechat_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   add_foreign_key "posts", "users"
