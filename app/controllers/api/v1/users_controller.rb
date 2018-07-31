@@ -7,4 +7,12 @@ class Api::V1::UsersController < Api::V1::BaseController
     @user = User.find(params[:id])
   end
 
+  def update
+    @user = User.find(params[:id]).update(set_params)
+  end
+
+  private
+  def set_params
+    params.require(:user).permit(:name, :gender, :avatarUrl)
+  end
 end

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       resources :posts do
         resources :transactions, only:[:index, :create]
       end
-      resources :users, only:[:index, :show]
+      resources :users, only:[:index, :show, :update]
       post '/login', to: 'login#login'
     end
   end
