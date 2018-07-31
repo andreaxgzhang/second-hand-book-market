@@ -1,7 +1,14 @@
 class Api::V1::PostsController < Api::V1::BaseController
   before_action :set_post, only: [ :show ]
   def index
-    @posts = Post.all
+    # p 'aaaa'
+    # p params
+    # p 'bbbb'
+    if params[:query].present?
+      @posts = Post.global_search(params[:query])
+    else
+      @posts = Post.all
+    end
   end
 
   def show
@@ -27,6 +34,6 @@ class Api::V1::PostsController < Api::V1::BaseController
   end
 
   def set_params
-    params.require(:post).permit(:title, :description, :price, :course_number, :professor)
+    params.require(:post).permit(:title, :description, :price, :course_number, :professor, :photo)
   end
 end

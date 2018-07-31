@@ -13,6 +13,6 @@ class Api::V1::UsersController < Api::V1::BaseController
 
   private
   def set_params
-    params.require(:user).permit(:name, :gender, :avatarUrl)
+    params.require(:user).permit(:name, :gender, :avatarUrl, :wechat_id, :email)
   end
 end
