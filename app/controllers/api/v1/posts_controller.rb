@@ -1,4 +1,5 @@
 class Api::V1::PostsController < Api::V1::BaseController
+
   before_action :set_post, only: [ :show ]
   def index
     @posts = Post.all
@@ -7,8 +8,18 @@ class Api::V1::PostsController < Api::V1::BaseController
   def show
   end
 
+    def update
+    @post = Post.find(params[:id])
+    if (@post.update post_params)
+      render :show
+    else
+      render_error
+    end
+  end
+
   def create
-    @post = Post.new(set_params)
+    @post = Post.create(post_params)
+    @post.user = User.all.sample
     if @post.save
       redirect_to api_v1_post_path(@post)
     else
@@ -17,6 +28,7 @@ class Api::V1::PostsController < Api::V1::BaseController
   end
 
   private
+
   def render_error
     render json: { errors: @post.errors.full_messages },
       status: :unprocessable_entity
@@ -29,4 +41,10 @@ class Api::V1::PostsController < Api::V1::BaseController
   def set_params
     params.require(:post).permit(:title, :description, :price, :course_number, :professor)
   end
+
+  def post_params
+    params.require(:post).permit(:title, :description, :price, :course_number, :professor)
+  end
+
 end
+
