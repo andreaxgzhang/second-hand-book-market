@@ -8,12 +8,22 @@
 #   Comment.create(restaurant: restaurant, content: "#{Faker::Hipster.sentence(2, false, 0)}", name: "#{Faker::Name.first_name}", image: "https://kitt.lewagon.com/placeholder/users/graysdays")
 #   Comment.create(restaurant: restaurant, content: "#{Faker::Hipster.sentence(2, false, 0)}", name: "#{Faker::Name.first_name}", image: "https://kitt.lewagon.com/placeholder/users/alex-felix")
 # end
-Post.delete_all
 
+Transaction.destroy_all
+Post.destroy_all
 User.delete_all
+
 10.times do
   User.create(email: Faker::Internet.email, wechat_id: Faker::Number.number(5), name: Faker::Name.name)
 end
 
-Post.create(title: 'ENWR 1510 Professor Zhu', course_number: 'ENWR 1510', professor: 'Rich Zhu', price: 20, user_id: User.last.id)
+Post.create(title: 'Introduction to Psychology', description: 'Likey New', course_number: 'ENWR 1510', professor: 'Rich Zhu', price: 20, user_id: User.last.id)
+
+Post.create(title: '我今天有点膨胀', description: 'Used', course_number: 'PHIL 4510', professor: '陈奕恺', price: 150, user_id: User.last.id)
+
+Post.create(title: 'Topics in Javascript', description: 'Acceptable', course_number: 'COMP 2510', professor: 'Dounan', price: 35, user_id: User.first.id)
+
+
+
+
 Transaction.create(user_id:User.last.id, post_id:Post.last.id)
