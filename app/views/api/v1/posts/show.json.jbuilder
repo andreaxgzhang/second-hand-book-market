@@ -1,1 +1,1 @@
-json.posts @post, :id, :title, :user, :description, :photo, :price, :course_number, :professor, :confirmed, :user_id
+json.posts @post, :id, :title, :description, :photo, :price, :course_number, :professor, :confirmed, :user_id

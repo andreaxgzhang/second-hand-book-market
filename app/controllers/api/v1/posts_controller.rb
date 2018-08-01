@@ -1,6 +1,6 @@
 class Api::V1::PostsController < Api::V1::BaseController
 
-  before_action :set_post, only: [ :show ]
+  # before_action :set_post, only: [ :show ]
   def index
     if params[:query].present?
       @posts = Post.global_search(params[:query]).select {|post| post.confirmed == false }
@@ -10,6 +10,9 @@ class Api::V1::PostsController < Api::V1::BaseController
   end
 
   def show
+        @post = Post.find(params[:id])
+
+
   end
 
   def update
@@ -25,7 +28,7 @@ class Api::V1::PostsController < Api::V1::BaseController
     @post = Post.create(post_params)
     @post.user = User.all.sample
     if @post.save
-      redirect_to api_v1_post_path(@post)
+      # redirect_to api_v1_post_path(@post)
     else
       render_error
     end
@@ -37,10 +40,8 @@ class Api::V1::PostsController < Api::V1::BaseController
     # Post.create(title: 'Introduction to Psychology', description: 'Likey New', course_number: 'ENWR 1510', professor: 'Rich Zhu', price: 20, user_id: 84)
     # Transaction.create(user_id: 84, post_id:Post.last)
     @posts.each do |post|
-      p Transaction.where(post_id: 8)
-      @transactions << Transaction.where(post_id: 8)
+      @transactions << Transaction.where(post_id: post.id)
     end
-    p @transactions
     @transactions
   end
 
