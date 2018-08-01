@@ -17,11 +17,11 @@ User.delete_all
   User.create(email: Faker::Internet.email, wechat_id: Faker::Number.number(5), name: Faker::Name.name)
 end
 
-Post.create(title: 'Introduction to Psychology', description: 'Likey New', course_number: 'ENWR 1510', professor: 'Rich Zhu', price: 20, user_id: User.last.id)
+Post.create(title: 'Introduction to Psychology', description: 'Likey New', course_number: 'ENWR 1510', professor: 'Rich Zhu', price: 20, user_id: User.last.id, photo:'https://www.bookish.com/wp-content/uploads/the-night-gardener-9781481439787_hr.jpg')
 
-Post.create(title: '我今天有点膨胀', description: 'Used', course_number: 'PHIL 4510', professor: '陈奕恺', price: 150, user_id: User.last.id)
+Post.create(title: '我今天有点膨胀', description: 'Used', course_number: 'PHIL 4510', professor: '陈奕恺', price: 150, user_id: User.last.id, photo:'http://lynnekennedymysteries.com/wp-content/uploads/2015/01/great-covers-21.jpg')
 
-Post.create(title: 'Topics in Javascript', description: 'Acceptable', course_number: 'COMP 2510', professor: 'Dounan', price: 35, user_id: User.first.id)
+Post.create(title: 'Topics in Javascript', description: 'Acceptable', course_number: 'COMP 2510', professor: 'Dounan', price: 35, user_id: User.first.id, photo:'https://www.bookish.com/wp-content/uploads/the-night-gardener-9781481439787_hr.jpg')
 
 
 
