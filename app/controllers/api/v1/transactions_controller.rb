@@ -5,9 +5,10 @@ class Api::V1::TransactionsController < Api::V1::BaseController
 
   def create
     @post = Post.find(params[:post_id])
-    @transaction = Transaction.new(post_id: @post.id)
+    @transaction = Transaction.new(set_params)
+    # @transaction = @post.tra
     if @transaction.save
-      redirect_to api_v1_post_transactions_path(@post)
+      # redirect_to api_v1_post_transactions_path(@post)
     else
       render_error
     end
@@ -19,7 +20,7 @@ class Api::V1::TransactionsController < Api::V1::BaseController
       status: :unprocessable_entity
   end
 
-  # def set_params
-  #   params.require(:transaction).permit(:post_id)
-  # end
+  def set_params
+    params.require(:transaction).permit(:post_id, :user_id, :photo, :title, :price)
+  end
 end
