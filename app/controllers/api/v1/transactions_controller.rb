@@ -9,6 +9,7 @@ class Api::V1::TransactionsController < Api::V1::BaseController
     # @transaction = @post.tra
     if @transaction.save
       # redirect_to api_v1_post_transactions_path(@post)
+
     else
       render_error
     end
