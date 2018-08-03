@@ -43,6 +43,6 @@ class Api::V1::TransactionsController < Api::V1::BaseController
   end
 
   def set_params
-    params.require(:transaction).permit(:post_id, :user_id, :photo, :title, :price, :completed)
+    params.require(:transaction).permit(:post_id, :user_id, :price, :completed)
   end
 end

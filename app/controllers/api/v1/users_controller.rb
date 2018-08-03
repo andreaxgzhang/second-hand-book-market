@@ -26,7 +26,6 @@ class Api::V1::UsersController < Api::V1::BaseController
     @posts.each do |post|
       # p Transaction.where(post_id: 8)
       tac = Transaction.where({post_id: post.id, completed:false})
-      p tac
       @transactions << tac[0] if tac.length > 0
     end
     @transactions
