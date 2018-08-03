@@ -1,6 +1,6 @@
 class Api::V1::PostsController < Api::V1::BaseController
 
-  before_action :set_post, only: [ :show ]
+  # before_action :set_post, only: [ :show ]
   def index
     p params[:query]
     if params[:query].present? && params[:query] != "undefined"
@@ -11,6 +11,9 @@ class Api::V1::PostsController < Api::V1::BaseController
   end
 
   def show
+        @post = Post.find(params[:id])
+
+
   end
 
   def update
@@ -39,6 +42,7 @@ class Api::V1::PostsController < Api::V1::BaseController
     else
       render_error
     end
+
   end
 
   private
