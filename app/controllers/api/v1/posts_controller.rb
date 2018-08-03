@@ -6,7 +6,7 @@ class Api::V1::PostsController < Api::V1::BaseController
     if params[:query].present? && params[:query] != "undefined"
       @posts = Post.global_search(params[:query]).select {|post| post.confirmed == false }
     else
-      @posts = Post.all
+      @posts = Post.all.select {|post| post.confirmed == false }
     end
   end
 

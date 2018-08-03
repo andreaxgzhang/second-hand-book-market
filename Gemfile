@@ -20,7 +20,7 @@ gem 'rest-client'
 gem 'pg_search'
 gem "letter_opener", group: :development
 gem 'postmark-rails'
-
+gem 'sendgrid-ruby'
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
