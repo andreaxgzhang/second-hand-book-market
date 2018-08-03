@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :posts
       resources :users, only:[:index, :show, :update]
-      resources :transactions, only:[:index, :create]
+      resources :transactions, only:[:index, :create, :update]
       get '/purchased', to: 'users#purchased'
       get '/sold', to: 'users#sold'
       post '/login', to: 'login#login'

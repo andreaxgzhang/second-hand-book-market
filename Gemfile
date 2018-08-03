@@ -18,6 +18,9 @@ gem 'webpacker'
 gem 'faker'
 gem 'rest-client'
 gem 'pg_search'
+gem "letter_opener", group: :development
+gem 'postmark-rails'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
