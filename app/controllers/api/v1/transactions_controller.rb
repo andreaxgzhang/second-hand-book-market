@@ -31,7 +31,7 @@ class Api::V1::TransactionsController < Api::V1::BaseController
 
 
   def update
-    @transaction = Transaction.find(param_id)
+    @transaction = Transaction.find(:post_id)
     p @transaction
     @transaction.update(set_params)
   end
