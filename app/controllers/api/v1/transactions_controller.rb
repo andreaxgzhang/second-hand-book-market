@@ -31,7 +31,7 @@ class Api::V1::TransactionsController < Api::V1::BaseController
 
 
   def update
-    @transaction = Transaction.find(params[:id])
+    @transaction = Transaction.find(param_id)
     p @transaction
     @transaction.update(set_params)
   end
@@ -43,6 +43,9 @@ class Api::V1::TransactionsController < Api::V1::BaseController
   end
 
   def set_params
-    params.require(:transaction).permit(:post_id, :user_id, :price, :completed)
+    params.require(:transaction).permit(:post_id, :user_id, :photo, :title, :description, :price, :completed)
+  end
+  def param_id
+    params.require(:transaction).permit(:post_id)
   end
 end

@@ -12,10 +12,10 @@ class Api::V1::UsersController < Api::V1::BaseController
   end
 
   def purchased
-    @user = User.find(params[:userId])
+    @user = User.find(params[:id])
     # Transaction.create(user_id: params[:userId], post_id:Post.last.id)
     # @user.transactions.create(post_id: Post.last.id)
-    @user.transactions
+    @transactions = @user.transactions
   end
 
   def sold
