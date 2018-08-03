@@ -90,7 +90,8 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
-
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { host: "http://TODO_PUT_YOUR_DOMAIN_HERE" }
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end

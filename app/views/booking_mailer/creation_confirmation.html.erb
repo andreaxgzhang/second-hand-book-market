@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p><%= @transaction.user.name %> wants your post "<%= @transaction.post.title %>".</p>
+    <% if @transaction.user.gender == 1 %>
+    <p>His wechat id is <%= @transaction.user.wechat_id %>.</p>
+    <p>Please contact him as soon as possible.</p>
+    <% else %>
+    <p>Her wechat id is <%= @transaction.user.wechat_id %>.</p>
+    <p>Please contact her as soon as possible.</p>
+    <% end %>
+    <p>Thank you for selling with us.</p>
+  </body>
+</html>
