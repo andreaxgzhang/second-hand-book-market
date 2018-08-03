@@ -20,10 +20,11 @@ class Api::V1::UsersController < Api::V1::BaseController
 
   def sold
     @posts = User.find(params[:userId]).posts.where({confirmed:false})
+    @posts_confirmed = User.find(params[:userId]).posts.where({confirmed:true})
     @transactions = []
     # Post.create(title: 'Introduction to Psychology', description: 'Likey New', course_number: 'ENWR 1510', professor: 'Rich Zhu', price: 20, user_id: 84)
     # Transaction.create(user_id: 84, post_id:Post.last)
-    @posts.each do |post|
+    @posts_confirmed.each do |post|
       # p Transaction.where(post_id: 8)
       tac = Transaction.where({post_id: post.id, completed:false})
       @transactions << tac[0] if tac.length > 0
