@@ -3,7 +3,6 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hi, <%= @transaction.post.user.name %>, someone wants your post</h1>
     <p><%= @transaction.user.name %> wants your post "<%= @transaction.post.title %>".</p>
     <% if @transaction.user.gender == 1 %>
     <p>His wechat id is <%= @transaction.user.wechat_id %>.</p>

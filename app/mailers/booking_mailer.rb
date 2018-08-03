@@ -3,7 +3,7 @@ class BookingMailer < ApplicationMailer
     @transaction = transaction
     mail(
       to:       Post.find(@transaction.post_id).user.email,
-      subject:  "Transaction created!"
+      subject:  "Hi, #{@transaction.post.user.name}, someone wants your post"
     )
   end
 end
